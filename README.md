@@ -15,6 +15,7 @@ A Sample HealthCare Application
 ## Developer Setup
 
 * git clone https://github.com/twilson63/simrx-api
+* npm install nodemon -g
 * cd simrx-api
 * npm install
 * npm start

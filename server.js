@@ -26,5 +26,6 @@ app.delete('/doctors/:id', dal.delete('doctor'))
 
 app.post('/find', dal.find)
 
-
-app.listen(3000)
+const port = process.env.PORT || 9000
+app.listen(port)
+console.log('listening on ' + port)

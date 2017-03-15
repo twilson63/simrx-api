@@ -1,9 +1,9 @@
 // # CRUD Module
 const cuid = require('cuid')
-
 const request = require('request')
 const url = process.env.COUCH_DATABASE
-const { has, merge, propEq } = require('ramda')
+const { has, merge, propEq,
+  map, lensProp, set, split, nth } = require('ramda')
 const qs = require('querystring')
 
 // import streams
@@ -13,6 +13,8 @@ const pull = require('pull-stream/pull')
 const pmap = require('pull-stream/throughs/map')
 const asyncMap = require('pull-stream/throughs/async-map')
 const toJSON = v => JSON.parse(v.toString())
+
+//const formatId = doc => set(lensProp('_id'), nth(1, split('/', doc)), doc )
 
 // validate name field
 const validateName = res => (data, cb) => {
