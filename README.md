@@ -2,6 +2,10 @@
 
 A Sample HealthCare Application
 
+## ENV
+
+`COUCH_DATABASE=http://localhost:5984/demo npm start`
+
 ## Requirements
 
 * CouchDB
