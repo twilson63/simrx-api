@@ -1,24 +1,28 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const crud = require('./crud')
 
+// common dal (data access layer)
+const dal = require('./dal')
+
+// cors middleware
 app.use(cors({ origin: true, credentials: true }))
 
+// rest api commands
 app.get('/', (req, res) => res.send('Welcome to SimRx API!'))
-app.get('/patients', crud.list('patient'))
-app.post('/patients', crud.create('patient'))
-app.get('/patients/:id', crud.read('patient'))
-app.put('/patients/:id', crud.update('patient'))
-app.delete('/patients/:id', crud.delete('patient'))
+app.get('/patients', dal.list('patient'))
+app.post('/patients', dal.create('patient'))
+app.get('/patients/:id', dal.read('patient'))
+app.put('/patients/:id', dal.update('patient'))
+app.delete('/patients/:id', dal.delete('patient'))
 
-app.get('/doctors', crud.list('doctor'))
-app.post('/doctors', crud.create('doctor'))
-app.get('/doctors/:id', crud.read('doctor'))
-app.put('/doctors/:id', crud.update('doctor'))
-app.delete('/doctors/:id', crud.delete('doctor'))
+app.get('/doctors', dal.list('doctor'))
+app.post('/doctors', dal.create('doctor'))
+app.get('/doctors/:id', dal.read('doctor'))
+app.put('/doctors/:id', dal.update('doctor'))
+app.delete('/doctors/:id', dal.delete('doctor'))
 
-app.post('/find', crud.find)
+app.post('/find', dal.find)
 
 
 app.listen(3000)
